@@ -1,0 +1,566 @@
+/* VARIABLES */
+/* :root{
+    --titulos: 'Arima Madurai', cursive;
+    --parrafos: 'Mulish', sans-serif;
+} */
+/* PARA QUE SE RESPETEN LOS TAMAÑOS DE LAS CAJAS */
+html{
+    box-sizing: border-box;
+    font-size: 62.5%;  /*1 rem = 10px*/
+}
+body{
+    font-size: 1.6rem;
+    overflow-x: hidden;  /*No se muestra la barra de mover abajo*/
+}
+*, *::after, *::before{  /*pseudo-elementos*/
+    box-sizing: inherit;
+}
+/* GLOBALES */
+.contenedor{
+    max-width: 120rem;
+    margin: 0 auto;  /*Centra el contenido*/
+    width: 95%;
+}
+h1, h2{
+    font-family: 'Arima Madurai', cursive;
+}
+h3, p, a{
+    font-family: 'Mulish', sans-serif;
+}
+img{
+    max-width: 100%;
+}
+.btn{
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem 4rem;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;  /*Transicion al pasar el mouse*/
+}
+@media(min-width:768px){
+    .btn{
+        font-size: 2.2rem;
+    }
+}
+.bordes{
+    border: 3px solid white;
+}
+@media(min-width:768px){
+    .bordes{
+        border: 4px solid white;
+    }
+}
+.bordes:hover{
+    color: black;
+    background-color: rgb(255, 0, 122);
+    border: 4px solid rgb(255, 0, 122);
+}
+/* ENCABEZADO DE LA PAGINA */
+.contenedor-navegacion{
+    background-color: black;
+    position: fixed;  /*barra de menu fija*/
+    z-index: 99;
+    width: 100%;
+}
+.contenido-navegacion{
+    display: flex;  /*elementos alineados de izquierda a derecha*/
+    align-items: center;
+    justify-content: space-between; /*between*/
+
+}
+.logo h2, .navegacion a{
+    color: white;
+}
+.logo h2{
+    font-size: 2rem;
+}
+@media(min-width:768px){
+    .logo h2{
+        font-size: 3rem;
+    }
+}
+.navegacion a{
+    text-decoration: none;
+    font-size: 2rem;
+    padding: 1rem;
+}
+.navegacion a:hover{  /*Cambio de color al pasar el mouse*/
+    color: red;
+}
+/*SECCION DE LOS ENLACES*/
+.navegacion a{
+    position: relative;
+    float: left;
+}
+#menuO{
+    display: none;
+}
+.menu-icono{
+    width: 40px;  /*Tamaño del icono hamburguesa*/
+}
+.menuP label{
+    cursor: pointer;
+    display: none;
+}
+
+/*ELIMINAR LOS LINK*/
+@media(max-width:991px){
+    .menuP{
+        position: absolute;  /*Para que se alinie a la izquierda*/
+    }
+    .menuP label{
+        display: initial;
+    }
+    .navegacion{
+        position: absolute;
+        top: 100%;
+        left: 0;
+        right: 0;
+        background-color: black;
+        display: none;
+    }
+    .navegacion a{
+        width: 100%;
+    }
+    /* #menuO:checked ~ .navegacion{
+        display: initial;
+    } */
+    .eslogan{    /*Desaparece el texto Deli Tempura*/
+        display: none;
+    }
+    /* .submenu:hover #carrito{
+        min-width: 100%;
+    } */
+}
+/*MENU RESPONSIVO*/
+#navmovil{
+    background: rgb(20, 20 , 20);
+    position: absolute;
+    top: 70px;
+    min-width: 100%;
+    z-index: 9;
+    padding: 20px 10px;
+    display: none;
+    position: fixed;  /*barra de menu fija*/
+}
+#navmovil li{
+    list-style: none;
+    padding: 10px;
+}
+#navmovil li a{
+    text-decoration: none;
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+}
+#navmovil li a:hover{
+    color: red;
+}
+
+/*CARRITO DE COMPRAS*/
+.submenu{
+    position: relative;
+}
+.submenu #carrito{
+    display: none;
+}
+.submenu:hover #carrito{
+    display: block;
+    position: absolute;
+    right: 0;
+    backdrop-filter: blur(10px);
+    top: 100%;
+    z-index: 1;
+    background-color: black;
+    padding: 20px;
+    min-width: 400px;  /*Espaciado entre los th*/
+}
+#img-carrito{
+    cursor: pointer;
+}
+table{
+    width: 100%;
+}
+th, td{
+    color: white;
+    text-align: center;  /*Elementos de la tabla alineados*/
+}
+.borrar-curso {
+    background-color: red;
+    border-radius: 50%;
+    padding: 5px 10px;
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+.btn-2{
+    display: inline-block;
+    padding: 8px 17px;
+    background-color: white;
+    border-radius: 20px;
+    color: black;
+    text-decoration: none;
+}
+.btn-2:hover{
+    color: black;
+    background-color: rgb(255, 0, 122);
+    border: 1px solid rgb(255, 0, 122);
+}
+
+/* IMAGEN DE HEAD */
+.contenido-header{
+    padding-top: 10px;
+    position: relative;
+}
+.contenido-header::before{  /*Crea un pseudo-elemento que es el primer hijo del elemento seleccionado*/
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, .5);
+}
+.texto-encabezado{
+    position: absolute;  /*Se coloca encima del difuminado*/
+    z-index: 0;  /*La letra ya no tapa el carrito*/
+    width: 100%;
+    height: 80%;
+    display: flex;  /*Alinea el contenido de izquiera a derecha*/
+    flex-direction: column;  /*Elementos en columna*/
+    align-items: center;
+    justify-content: center;
+}
+.texto-encabezado h2{
+    color: white;
+    font-size: 4rem;
+}
+@media(min-width:768px) {
+    .texto-encabezado h2{
+        font-size: 8rem;
+    }
+}
+.img-cabecera{
+    width: 100%;
+    height: 100%;
+}
+/* SOBRE NOSOTROS */
+.contenedor-nosotros{
+    padding-top: 5rem;
+}
+@media(min-width:768px) {
+    .contenedor-nosotros{
+        display: flex;  /*Contenido alineado de izquierda a derecha*/
+        justify-content: space-between;  /*Separacion de 10px*/
+    }
+}
+.texto-nosotros, .imagenes-nosotros{
+    flex: 0 0 calc(50% - 1rem);  /*Contenido 50%*/
+}
+.texto-nosotros .bienvenida{
+    font-size: 4rem;
+    color: brown;
+    text-align: center;
+}
+@media(min-width:768px) {
+    .texto-nosotros .bienvenida{
+        text-align: left;
+    }
+}
+.texto-nosotros h1{
+    font-size: 5rem;
+    text-align: center;
+}
+@media(min-width:768px){
+    .texto-nosotros h1{
+        text-align: left;
+    }
+}
+.texto-nosotros p{
+    font-size: 2rem;
+    text-align: center;
+}
+@media(min-width:768px){
+    .texto-nosotros p{
+        text-align: left;
+    }
+}
+.imagenes-nosotros{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+.imagenes-nosotros img{
+    border-radius: 5px;
+}
+.imagen1, .imagen2{
+    flex: 0 0 calc(50% - 1rem);
+}
+.menu{
+    padding-top: 4rem;
+}
+/* SECCION PLATILLOS */
+/* BOTONES */
+.texto-platillos{
+    text-align: center;  /*texto centrado*/
+    font-size: 5rem;
+}
+.btn1{
+    background-color: black;
+    text-decoration: none;
+    color: white;
+    font-size: 2rem;
+    padding: 1rem 3rem;
+    border-radius: 5px;
+    transition: all .3s ease-in-out;  /*Transicion al pasar el mouse*/
+    display: inline-block;
+    margin-bottom: 2rem;
+    font-family: 'Mulish', sans-serif;
+}
+.btn1:hover{
+    color: black;
+    background-color: rgb(255, 0, 122);
+    border: 2px solid rgb(255, 0, 122);
+    cursor: pointer;
+}
+.botones-platillos{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+}
+.botones-platillos button{
+    flex: 0 0 calc(50% - 1rem);
+}
+@media(min-width: 768px){
+    /* .botones-platillos{
+        display: inline-block;
+    } */
+    .botones-platillos button{
+        flex: unset;
+    }
+}
+/* IMAGENES DE PLATILLOS */
+@media(min-width: 768px){
+    .platillos{
+        display: flex;
+        justify-content: space-between;  /*Separacion entre los elementos alineados*/
+        flex-wrap: wrap;
+    }
+}
+.platillo{
+    flex: 0 0 calc(33.3% - 1rem);  /*Lo alinea en grupo de 3 en 3*/
+    border: 1px solid black;
+    padding: 2rem;
+    border-radius: 5px;
+    margin-bottom: 2rem;  /*Espacio entre los menus*/
+    background-color: black;
+}
+.platillo h2{
+    text-align: center;
+    color: white;
+}
+.platillo p{
+    font-size: 1.8rem;
+    color: white;
+}
+.precio{
+    display: flex;
+    justify-content: space-between;
+}
+.precio p{
+    font-weight: bold;
+    font-size: 2rem;
+}
+.precio button{
+    padding: 1rem;
+    border-radius: 5px;
+    border: none;
+    background-color: white;
+    color: black;
+    font-family: 'Mulish', sans-serif;;
+}
+.precio button:hover{
+    color: black;
+    background-color: rgb(255, 0, 122);
+    border: 2px solid rgb(255, 0, 122);
+    cursor: pointer;
+}
+/* SEPARADOR */
+.separador{
+    background-image: url('../IMG/slider2.png');  /*Imagen de fondo en el separador*/
+    background-size: cover;  /*La imagen se adapta al contenedor padre*/
+    background-position: center center;  /*imagen centrada*/
+    background-repeat: no-repeat;
+    position: relative;  /*obligatorio para el difuminado*/
+    z-index: 2;
+}
+.separador::before{  /*difuminador*/
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    bottom: 0;
+    right: 0;
+    background-color: rgba(0, 0, 0, .5);
+    z-index: -1;
+}
+.conetido-separador{
+    padding: 5rem;
+}
+.conetido-separador h2{
+    font-size: 4rem;
+    color: white;
+    text-align: center;
+}
+@media(min-width:768px){
+    .conetido-separador h2{
+        text-align: left;
+        font-size: 5rem;
+        color: white;
+    }
+}
+.conetido-separador p{
+    font-size: 3rem;
+    color: wheat;
+    text-align: center;
+}
+@media(min-width:768px){
+    .conetido-separador p{
+        text-align: left;
+    }
+}
+/* SECCION DE VISION Y MISION */
+.mision h2{
+    font-size: 5rem;
+    text-align: center;
+}
+@media(min-width:768px){
+    .contenido-mision{
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+    }
+}
+.texto-mision, .imagen-chef{
+    flex: 0 0 calc(50% - 1rem);
+}
+.texto-mision p{
+    font-size: 2rem;
+}
+/* SECCION DE FORMULARIO */
+.btn2{
+    background-color: black;
+    color: white;
+    font-size: 2rem;
+    font-family: 'Mulish', sans-serif;
+    padding: 1rem 3rem;
+    margin-top: 2rem;
+}
+.btn2:hover{
+    color: black;
+    background-color: rgb(255, 0, 122);
+    border: 1px solid rgb(255, 0, 122);
+    cursor: pointer;
+}
+.formulario h3{
+    font-size: 4rem;
+    font-family: 'Arima Madurai', cursive;
+    text-align: center;
+}
+.formulario-contacto{
+    padding-top: 5rem;
+}
+@media(min-width:768px){
+    .formulario-contacto{
+        display: flex;  /*elementos alineados de izquiera a derecha*/
+    }
+}
+.informacion-contacto{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;  /*texto en vertical centrado*/
+    text-align: center;  /*texto alineado horizontalmente*/
+}
+
+.informacion-contacto, .formulario{
+    flex: 0 0 calc(50% - 1rem);  /*Conenido separado en 2 bloques*/
+}
+.informacion-contacto{
+    background-color: black;
+    padding: 2rem;
+}
+.informacion-contacto h3, .informacion-contacto p{
+    color: white;
+}
+.informacion-contacto h3{
+    font-size: 4rem;
+    font-family: 'Arima Madurai', cursive;
+}
+.informacion-contacto p{
+    font-size: 2rem;
+}
+.redes-sociales img{
+    width: 3rem;
+    margin-right: 1rem;
+}
+.formulario{
+    padding: 5rem;
+}
+.input-formulario label{
+    display: block;
+    font-size: 2rem;
+    font-family: 'Mulish', sans-serif;
+    margin-bottom: 1.5rem;
+    margin-top: 1.5rem;
+}
+.input-formulario input{
+    width: 100%;
+}
+.input-formulario input{
+    padding: 1rem 1.6rem;
+    border: 1px solid black;
+    border-radius: 5px;
+    outline: none;  /*ya no se visualiza la linea negra en caso no hay bordes */
+    font-family: 'Mulish', sans-serif;
+}
+.informacion-contacto img{
+    margin-right: 1rem;
+}
+/* PIE DE PAGINA */
+.pie-pagina{
+    margin-top: 5rem;
+    background-color: rgb(20, 20, 20);
+    padding: 5rem;
+}
+@media(min-width:768px){
+    .contenedor-piepagina{
+        display: flex;
+        justify-content: space-between;
+    }
+}
+.info{
+    flex: 0 0 calc(33.3% - 1rem);  /*Los 3 bloques alineados ocupando un espaciado del 33.3%*/
+    margin-bottom: 2rem;
+}
+.info h3, .info p{
+    color: white;
+    text-align: center;
+}
+.info h3{
+    font-size: 2.2rem;
+}
+.info p{
+    font-size: 1.8rem;
+}
+.redes-pie{
+    text-align: center;  /*iconos centrados*/
+}
+/* FOOTER */
+.footer{
+    text-align: center;
+    background-color: black;
+    color: white;
+    padding: 2rem;
+    font-size: 2rem;
+}

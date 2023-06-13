@@ -1,0 +1,416 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deli Tempura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@700&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="encabezado">
+        <div class="contenedor-navegacion">
+            <div class="contenido-navegacion contenedor">
+                <div class="logo">
+                    <h2 id="inicio-e" class="eslogan">Deli Tempura</h2>
+                </div>
+                <div class="menuP">
+                    <input type="checkbox" id="menuO" />
+                    <label for="menuO" onclick="togglenav()"><img data-src="IMG/menu.svg" alt="menu-icono" class="menu-icono"></label>
+                </div>
+                <nav class="navegacion">
+                    <a href="#inicio-e">Inicio</a>
+                    <a href="#nosotros-e">Nosotros</a>
+                    <a href="#menu-e">Menú</a>
+                    <a href="#mision-e">Mision y Vision</a>
+                    <a href="#contacto-e">Contacto</a>
+                </nav>
+                <!-- CARRITO -->
+                <div>
+                    <ul>
+                        <li class="submenu">
+                            <img data-src="IMG/carrito.svg" alt="carrito" id="img-carrito" style="width: 40px;">
+                            <div id="carrito">
+                                <table id="lista-carrito">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                                <a href="#" id="procesar-compra" class="btn-2">Procesar Compra</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+                <!-- FIN-CARRITO -->
+            </div>
+        </div>
+        <!-- Imagen de cabezera -->
+        <div class="contenido-header">
+            <div class="contenedor-encabezado">
+                <div class="texto-encabezado">
+                    <h2>いらっしゃいませ</h2>
+                    <a href="#menu-e" class="btn bordes">メニュー</a>
+                </div>
+                <img data-src="IMG/ramen_fondo.png" alt="" class="img-cabecera">
+            </div>
+        </div>
+        <!-- Menu responsive -->
+        <nav id="navmovil">
+            <li><a href="#inicio-e" onclick="togglenav()">Inicio</a></li>
+            <li><a href="#nosotros-e" onclick="togglenav()">Nosotros</a></li>
+            <li><a href="#menu-e" onclick="togglenav()">Menú</a></li>
+            <li><a href="#mision-e" onclick="togglenav()">Mision y Vision</a></li>
+            <li><a href="#contacto-e" onclick="togglenav()">Contacto</a></li>
+        </nav>
+    </header>
+    <!-- Sobre Nosotros -->
+    <div class="contenedor-nosotros contenedor">
+        <div class="texto-nosotros">
+            <p class="bienvenida" id="nosotros-e">Bienvenido a</p>
+            <h1>Deli Tempura</h1>
+            <p> Deli Tempura es nuestro pequeño refugio, un lugar para retribuir a nuestra comunidad de la mejor manera que sabemos: 
+                brindandole un lugar para reunirse, compartir historias y crear recuerdos. <br>
+                ¡Déjate seducir por el apetitoso mundo del ramen! Cada tazón es una experiencia culinaria única, 
+                con sabores intensos y reconfortantes que te transportarán a las calles de Japón. Desde el primer 
+                sorbo, te cautivará la combinación perfecta de fideos suaves, caldo aromático y una variedad de 
+                ingredientes exquisitos. Sea que busques un toque picante, un sabor umami o una opción reconfortante, 
+                el ramen tiene algo para todos los paladares. Ya sea en busca de un almuerzo rápido, una cena reconfortante 
+                o un festín para el alma, el ramen te espera con sus sabores irresistibles. ¡Atrévete a explorar este plato 
+                lleno de calidez y satisfacción!
+            </p>
+        </div>
+        <div class="imagenes-nosotros">
+            <div class="imagen1">
+                <img data-src="IMG/bienvenidos.png" alt="bienvenido-anime">
+            </div>
+            <div class="imagen2">
+                <img data-src="IMG/nosotros.png" alt="nosotros">
+            </div>
+        </div>
+    </div>
+    <!-- SECCION DE PLATILLOS -->
+    <!-- BOTONES -->
+    <section class="menu contenedor">
+        <h2 class="texto-platillos" id="menu-e">Nuestro Menu</h2>
+        <div class="botones-platillos">
+            <button class="todos btn1">Todos</button>
+            <button class="desayunos btn1">Desayunos</button>
+            <button class="entradas btn1">Entradas</button>
+            <button class="ramen btn1">Ramen</button>
+            <button class="fideos btn1">Fideos</button>
+            <button class="picantes btn1">Picante</button>
+            <button class="postres btn1">Postres</button>
+            <button class="bebidas btn1">Bebidas</button>
+        </div>
+        <!-- IAMGENES DE LOS PLATILLOS -->
+        <div class="platillos" id="lista-platillos">
+            <!-- DESAYUNOS -->
+            <div class="platillo" data-platillo="desayunos">
+                <img data-src="IMG/Takao-Omuraisu.jpg" alt="takao">
+                <h2>TAKAO OMURAISU</h2>
+                <p>Arroz frito, huevos revueltos, anguila, ketchup, lechuga romana, tomates cherry y salsa gomadare</p>
+                <div class="precio">
+                    <p>S/36.00</p>
+                    <button class="agregar-carrito" data-id="1">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="desayunos">
+                <img data-src="IMG/Taki-Souffle-pancakes.jpg" alt="taki souffle">
+                <h2>TORTITAS TAKI SOUFFLE</h2>
+                <p>Panqueques de aire japonés, salsa de chocolate, salsa de crema de fresa</p>
+                <div class="precio">
+                    <p>S/27.00</p>
+                    <button class="agregar-carrito" data-id="2">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="desayunos">
+                <img data-src="IMG/Okayu.jpg" alt="okayu">
+                <h2>OKAYU</h2>
+                <p>Gachas de arroz japonés, umeboshi, cebollín, semillas de sésamo</p>
+                <div class="precio">
+                    <p>S/23.00</p>
+                    <button class="agregar-carrito" data-id="3">Agregar Compra</button>
+                </div>
+            </div>
+            <!-- ENTRADAS -->
+            <div class="platillo" data-platillo="entradas">
+                <img data-src="IMG/onigiri.png" alt="onigiri">
+                <h2>ONIGIRI</h2>
+                <p>Arroz, salmon, queso, crema, furikake/arroz, cangrejo, atun, salsa, mentaiko, matcha y salsa de soya</p>
+                <div class="precio">
+                    <p>S/28.00</p>
+                    <button class="agregar-carrito" data-id="4">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="entradas">
+                <img data-src="IMG/takoyaki.png" alt="takoyaki">
+                <h2>TAKOYAKI</h2>
+                <p>Masa de caldo de pescado, pulpo/gamba/angila, salsa takoyaki, virutas de atun</p>
+                <div class="precio">
+                    <p>S/32.00</p>
+                    <button class="agregar-carrito" data-id="5">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="entradas">
+                <img data-src="IMG/gyoza.png" alt="gyoza">
+                <h2>GYOZA</h2>
+                <p>Albondigas fritas japonesas con salmon, cerdo y pollo, salsa de crema, cebollas verdes</p>
+                <div class="precio">
+                    <p>S/34.00</p>
+                    <button class="agregar-carrito" data-id="6">Agregar Compra</button>
+                </div>
+            </div>
+            <!-- RAMEN -->
+            <div class="platillo" data-platillo="ramen">
+                <img data-src="IMG/ramenUzumaki.png" alt="uzumaki">
+                <h2>RAMEN UZUMAKI DE NARUTO</h2>
+                <p>Cerdo chashu, fideos ramen, miso motodare, caldo de cerdo, huevo adzitama, shriracha, brotes de soja. 
+                    tsukudani kombu, cebollas verdes, semillas de sesamo, alga norI</p>
+                <div class="precio">
+                    <p>S/60.00</p>
+                    <button class="agregar-carrito" data-id="7">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="ramen">
+                <img data-src="IMG/ramenZenku.png" alt="zenku">
+                <h2>RAMEN ZENKU DE Dr. STONE</h2>
+                <p>Filete de pollo, fideos ramen, caldo de soya, miso, pasta de pimienta, shiitake, maiz picante, 
+                    huevo adzitama, cebolla verde, aceite de sesamo, sesamo</p>
+                <div class="precio">
+                    <p>S/55.00</p>
+                    <button class="agregar-carrito" data-id="8">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="ramen">
+                <img data-src="IMG/ramenGoku.png" alt="goku">
+                <h2>RAMEN GOKU DE DRAGON BALL</h2>
+                <p>Carne de res, fideos ramen, caldo de res, huevo adzitama, tsukudani kombu, cebollas verdes, bambu 
+                    en escabeche, miso motodare, aceite de sesamo, sesamo</p>
+                <div class="precio">
+                    <p>S/50.00</p>
+                    <button class="agregar-carrito" data-id="9">Agregar Compra</button>
+                </div>
+            </div>
+            <!-- FIDEOS -->
+            <div class="platillo" data-platillo="fideos">
+                <img data-src="IMG/udon.png" alt="udon">
+                <h2>UDON</h2>
+                <p>Fideos udon, ternera marmolada, caldo de ternera, setas shimiji, huevo adzitama, tofu, cebolletas, sesamo</p>
+                <div class="precio">
+                    <p>S/33.00</p>
+                    <button class="agregar-carrito" data-id="10">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="fideos">
+                <img data-src="IMG/yakisoba.png" alt="yakisoba">
+                <h2>YAKISOBA</h2>
+                <p>Fideos soba al huevo, setas y shimiji, puerros, shiitake, bok choy, cebollas crujientes, edamane, sesamo, 
+                    microgreens, salsa yaki udon</p>
+                <div class="precio">
+                    <p>S/47.00</p>
+                    <button class="agregar-carrito" data-id="11">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="fideos">
+                <img data-src="IMG/soba.png" alt="soba">
+                <h2>SOBA</h2>
+                <p>Sarashina soba, gambas kakiage sakura, dashi, salsa de soja, mirin</p>
+                <div class="precio">
+                    <p>S/32.00</p>
+                    <button class="agregar-carrito" data-id="12">Agregar Compra</button>
+                </div>
+            </div>
+            <!-- COMIDA PICANTE -->
+            <div class="platillo" data-platillo="picantes">
+                <img data-src="IMG/nikujaga.png" alt="nikujaga">
+                <h2>NIKUJAGA</h2>
+                <p>Pecho de cerdo, fideos shirataki, cebollas, patatas, guisantes, zanahorias, setas shiitake secas, 
+                    judias verdes, sake, sala de soja</p>
+                <div class="precio">
+                    <p>S/27.00</p>
+                    <button class="agregar-carrito" data-id="13">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="picantes">
+                <img data-src="IMG/katsudon.png" alt="katsudon">
+                <h2>KATSUDON</h2>
+                <p>Chuleta tonkatsu de cerdo empanada, arroz, col de pekin con aderezo de yuzu, salsa de soja</p>
+                <div class="precio">
+                    <p>S/36.00</p>
+                    <button class="agregar-carrito" data-id="14">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="picantes">
+                <img data-src="IMG/kareRaisu.png" alt="kare raisu">
+                <h2>KARE RAISU</h2>
+                <p>Ternera marmoleada, arroz, patatas, zanahorias, cebollas, salsa curry, jengibre molido</p>
+                <div class="precio">
+                    <p>S/32.00</p>
+                    <button class="agregar-carrito" data-id="15">Agregar Compra</button>
+                </div>
+            </div>
+            <!-- POSTRES -->
+            <div class="platillo" data-platillo="postres">
+                <img data-src="IMG/pieLimon.png" alt="pie de limon">
+                <h2>PIE DE LIMON</h2>
+                <p>Masa dulce con azucar y polvo de almendras, crema de limon, merengue frances</p>
+                <div class="precio">
+                    <p>S/20.00</p>
+                    <button class="agregar-carrito" data-id="16">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="postres">
+                <img data-src="IMG/taiyaki.png" alt="taiyaki">
+                <h2>TAIYAKI</h2>
+                <p>Gofre de pescado japones en sabores: vainilla-frambuesa / platano-nutella / franbuesa-albahaca / 
+                    mermelada anko hecha de frijoles adzuki</p>
+                <div class="precio">
+                    <p>S/30.00</p>
+                    <button class="agregar-carrito" data-id="17">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="postres">
+                <img data-src="IMG/dango.png" alt="dango">
+                <h2>DANGO</h2>
+                <p>Bolas de harina de arroz de colores con salsa de soja, azucar y jarabe de almidon</p>
+                <div class="precio">
+                    <p>S/19.00</p>
+                    <button class="agregar-carrito" data-id="18">Agregar Compra</button>
+                </div>
+            </div>
+            <!-- BEBIDAS -->
+            <div class="platillo" data-platillo="bebidas">
+                <img data-src="IMG/cafe.png" alt="cafe">
+                <h2>CAFE</h2>
+                <p>Cafe en grano, agua</p>
+                <div class="precio">
+                    <p>S/8.00</p>
+                    <button class="agregar-carrito" data-id="19">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="bebidas">
+                <img data-src="IMG/sake.png" alt="sake">
+                <h2>SAKE</h2>
+                <p>Arroz, koji, agua</p>
+                <div class="precio">
+                    <p>S/15.00</p>
+                    <button class="agregar-carrito" data-id="20">Agregar Compra</button>
+                </div>
+            </div>
+            <div class="platillo" data-platillo="bebidas">
+                <img data-src="IMG/teVerde.png" alt="te verde">
+                <h2>TE VERDE</h2>
+                <p>Te verde, agua, azucar</p>
+                <div class="precio">
+                    <p>S/10.00</p>
+                    <button class="agregar-carrito" data-id="21">Agregar Compra</button>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- SEPARADOR -->
+    <div class="separador">
+        <div class="conetido-separador contenedor">
+            <h2>Es hora de un buen ramen</h2>
+            <p>Ademas disfruta de nuestra variedad de platillos</p>
+        </div>
+    </div>
+    <!-- SECCCION DE VISION Y MISION -->
+    <section class="mision contenedor">
+        <h2 id="mision-e">Mision y Vision</h2>
+        <div class="contenido-mision">
+            <div class="texto-mision">
+                <p>
+                    Ofrecer auténticos platos de ramen, utilizando ingredientes frescos y de alta calidad, 
+                    para brindar una experiencia culinaria única y satisfactoria a nuestros clientes. <br> <br>
+                    Ser reconocidos como el restaurante de ramen más admirado y querido, destacando por 
+                    la calidad excepcional de nuestros platos y proporcionando una experiencia auténtica que 
+                    deleite a los amantes del ramen en nuestra comunidad.
+                </p>
+            </div>
+            <div class="imagen-chef">
+                <img data-src="IMG/chef.png" alt="chef" style="width: 500px;">
+            </div>
+        </div>
+    </section>
+    <!-- SECCION DE CONTACTO -->
+    <div class="formulario-contacto contenedor">
+        <div class="informacion-contacto">
+            <h3 id="contacto-e">Contactanos</h3>
+            <p><img data-src="IMG/marker.svg" alt="marker" style="width: 25px;">Av. Aviacion, San Borja 1234</p>
+            <p><img data-src="IMG/email.svg" alt="email" style="width: 25px;">deliTempura@gmail.com</p>
+            <p><img data-src="IMG/phone.svg" alt="phone" style="width: 25px;">987654321</p>
+            <div class="redes-sociales">
+                <a href="https://es-la.facebook.com/" target="_blank"><img data-src="IMG/icoB-facebook.svg" alt="facebook"></a>
+                <a href="https://www.instagram.com/" target="_blank"><img data-src="IMG/icoB-instagram.svg" alt="instagram"></a>
+                <a href="https://www.tiktok.com/es/" target="_blank"><img data-src="IMG/icoB-tiktok.svg" alt="tiktok"></a>
+            </div>
+        </div>
+        <!-- FORMULARIO -->
+        <form class="formulario">
+            <h3>Registrate</h3>
+            <div class="input-formulario">
+                <label for="nombre">Nombre</label>
+                <input type="text" placeholder="Juan" id="nombre">
+            </div>
+            <div class="input-formulario">
+                <label for="apellidos">Apellido</label>
+                <input type="text" placeholder="perez" id="apellidos">
+            </div>
+            <div class="input-formulario">
+                <label for="correo">Correo</label>
+                <input type="email" placeholder="ejemplo@gmail.com" id="correo">
+            </div>
+            <div class="input-formulario">
+                <label for="telefono">Telefono</label>
+                <input type="tel" placeholder="912345678" id="telefono">
+            </div>
+            <div class="input-formulario">
+                <input type="submit" value="Enviar" class="btn2">
+            </div>
+        </form>
+    </div>
+    <!-- PIE DE PAGINA -->
+    <div class="pie-pagina">
+        <div class="contenedor-piepagina contenedor">
+            <div class="info">
+                <h3>Direccion</h3>
+                <p>Av. Aviacion, San Borja 1234</p>
+            </div>
+            <div class="info">
+                <h3>Horario de atencion</h3>
+                <p>
+                    Lunes a Viernes, 11am a 10pm <br>
+                    Sabados y Domingos, 12pm a 10pm
+                </p>
+            </div>
+            <div class="info">
+                <h3>Siguenos en</h3>
+                <div class="redes-sociales redes-pie">
+                    <a href="https://es-la.facebook.com/" target="_blank"><img data-src="IMG/icoB-facebook.svg" alt="facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img data-src="IMG/icoB-instagram.svg" alt="instagram"></a>
+                    <a href="https://www.tiktok.com/es/" target="_blank"><img data-src="IMG/icoB-tiktok.svg" alt="tiktok"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Todos los derechos reservados &copy; 2023 Deli Tempura, desarrollado por Luis</p>
+    </footer>
+
+    <script src="JS/app.js"></script>
+</body>
+</html>
