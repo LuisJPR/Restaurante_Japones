@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Deli Tempura</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Arima:wght@700&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="CSS/normalize.css">
+    <link rel="stylesheet" href="CSS/estilos.css">
+</head>
+<body>
+    <!-- Encabezado -->
+    <header class="encabezado">
+        <div class="contenedor-navegacion">
+            <div class="contenido-navegacion contenedor">
+                <div class="logo">
+                    <h2 id="inicio-e" class="eslogan">Deli Tempura</h2>
+                </div>
+                <div class="menuP">
+                    <input type="checkbox" id="menuO" />
+                    <label for="menuO" onclick="togglenav()"><img data-src="IMG/menu.svg" alt="menu-icono" class="menu-icono"></label>
+                </div>
+                <nav class="navegacion">
+                    <a href="index.html">Inicio</a>
+                    <a href="index.html/#nosotros-e">Nosotros</a>
+                    <a href="index.html/#menu-e">Menú</a>
+                    <a href="index.html/#mision-e">Mision y Vision</a>
+                    <a href="index.html/#contacto-e">Contacto</a>
+                    <a href="user.html">Perfil</a>
+                </nav>
+                <!-- CARRITO -->
+                <div>
+                    <ul>
+                        <li class="submenu">
+                            <img data-src="IMG/carrito.svg" alt="carrito" id="img-carrito" style="width: 40px;">
+                            <div id="carrito">
+                                <table id="lista-carrito">
+                                    <thead>
+                                        <tr>
+                                            <th>Imagen</th>
+                                            <th>Nombre</th>
+                                            <th>Precio</th>
+                                            <th>Cantidad</th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody></tbody>
+                                </table>
+                                <a href="#" id="vaciar-carrito" class="btn-2">Vaciar Carrito</a>
+                                <a href="#" id="procesar-compra" class="btn-2">Procesar Compra</a>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- FIN-CARRITO -->
+            </div>
+        </div>
+    </header>
+
+    <!-- Página de inicio de sesión y registro -->
+    <main id="login-register">
+        <h1>Iniciar sesión</h1>
+        <form id="login-form">
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <button type="submit">Iniciar sesión</button>
+        </form>
+
+        <h1>Registrarse</h1>
+        <form id="register-form">
+            <input type="text" placeholder="Nombre de cliente" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <input type="tel" placeholder="Teléfono" required>
+            <input type="text" placeholder="Dirección de domicilio" required>
+            <button type="submit">Registrarse</button>
+        </form>
+    </main>
+
+    <!-- Página de perfil de usuario -->
+    <section id="perfil">
+        <h1>Perfil de usuario</h1>
+        <h2>Datos personales</h2>
+        <form id="profile-form">
+            <input type="text" placeholder="Nombre de cliente" required>
+            <input type="email" placeholder="Correo electrónico" required>
+            <input type="password" placeholder="Contraseña" required>
+            <input type="tel" placeholder="Teléfono" required>
+            <input type="text" placeholder="Dirección de domicilio" required>
+            <button type="submit">Guardar cambios</button>
+        </form>
+
+        <h2>Historial de compras</h2>
+        <table id="purchase-history">
+            <thead>
+                <tr>
+                    <th>N° Pedido</th>
+                    <th>Productos</th>
+                    <th>Fecha de compra</th>
+                    <th>Monto total de pedido</th>
+                </tr>
+            </thead>
+        </table>
+    </section>
+
+    <!-- PIE DE PAGINA -->
+    <div class="pie-pagina">
+        <div class="contenedor-piepagina contenedor">
+            <div class="info">
+                <h3>Direccion</h3>
+                <p>Av. Aviacion, San Borja 1234</p>
+            </div>
+            <div class="info">
+                <h3>Horario de atencion</h3>
+                <p>
+                    Lunes a Viernes, 11am a 10pm <br>
+                    Sabados y Domingos, 12pm a 10pm
+                </p>
+            </div>
+            <div class="info">
+                <h3>Siguenos en</h3>
+                <div class="redes-sociales redes-pie">
+                    <a href="https://es-la.facebook.com/" target="_blank"><img data-src="IMG/icoB-facebook.svg" alt="facebook"></a>
+                    <a href="https://www.instagram.com/" target="_blank"><img data-src="IMG/icoB-instagram.svg" alt="instagram"></a>
+                    <a href="https://www.tiktok.com/es/" target="_blank"><img data-src="IMG/icoB-tiktok.svg" alt="tiktok"></a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <footer class="footer">
+        <p>Todos los derechos reservados &copy; 2023 Deli Tempura, desarrollado por Luis</p>
+    </footer>
+
+    <script src="JS/login.js"></script>
+</body>
+</html>
