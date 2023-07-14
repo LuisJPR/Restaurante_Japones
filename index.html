@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Deli Tempura</title>
+    <link rel="icon" href="IMG/restaurant.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@700&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
@@ -23,13 +24,16 @@
                     <label for="menuO" onclick="togglenav()"><img data-src="IMG/menu.svg" alt="menu-icono" class="menu-icono"></label>
                 </div>
                 <nav class="navegacion">
-                    <a href="#inicio-e">Inicio</a>
-                    <a href="#nosotros-e">Nosotros</a>
-                    <a href="#menu-e">Menú</a>
-                    <a href="#mision-e">Mision y Vision</a>
-                    <a href="#contacto-e">Contacto</a>
-					<a href="user.html">Perfil</a>
-                </nav>
+                    <a href="index.html" class="nav-tab">Inicio</a>
+                    <a href="#nosotros-e" class="nav-tab">Nosotros</a>
+                    <a href="#menu-e" class="nav-tab">Menú</a>
+                    <a href="#mision-e" class="nav-tab">Mision y Vision</a>
+                    <a href="#contacto-e" class="nav-tab">Contacto</a>
+                    <a href="login_register.html" class="cuenta-link">
+                      <span class="icono-user">
+                        <img data-src="IMG/user-regular.svg" alt="Icono Usuario">
+                      </span>Ingresar</a>
+                </nav>                  
                 <!-- CARRITO -->
                 <div>
                     <ul>
@@ -75,6 +79,10 @@
             <li><a href="#menu-e" onclick="togglenav()">Menú</a></li>
             <li><a href="#mision-e" onclick="togglenav()">Mision y Vision</a></li>
             <li><a href="#contacto-e" onclick="togglenav()">Contacto</a></li>
+            <li><a href="login_register.html" onclick="togglenav()" class="ingresar-link">
+                <span class="icon-responsive">
+                  <img data-src="IMG/user-regular.svg" alt="Icono Usuario">
+                </span>Ingresar</a></li>
         </nav>
     </header>
     <!-- Sobre Nosotros -->
