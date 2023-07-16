@@ -22,7 +22,7 @@ document.getElementById("save-btn").addEventListener("click", function() {
     direccion: address
   };
 
-  // Enviar los datos del perfil de usario al archivo PHP usando Axios
+  // Enviar los datos del perfil de usuario al archivo PHP usando Axios
   axios.post("../PHP/update_data.php", userData)
     .then(function(response) {
       // Manejar la respuesta del archivo PHP si es necesario

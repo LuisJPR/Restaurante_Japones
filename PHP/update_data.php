@@ -7,6 +7,10 @@
     $clave = $_POST["clave"];
     $direccion = $_POST["direccion"];
 
+    // Obtener los datos de sesion activos
+    $session_nomb = $_SESSION["nombre"];
+    $session_email = $_SESSION["correo"];
+
     // Realizar las operaciones necesarias con los datos recibidos
     // Por ejemplo, guardarlos en la base de datos o realizar alguna otra acción
     include("conexion.php");
@@ -15,11 +19,15 @@
     // Realizar las validaciones necesarias
     include("util.php");
     if (validarRegistroForm($nombre, $correo)) {
-        $nomb = $_SESSION["nombre"];
-        $email = $_SESSION["correo"];
+        
         // Actualiza la informacion en la base de datos
         $sql = "UPDATE usuarios SET nombre = '$nombre', correo = '$correo', clave = '$clave', direccion = '$direccion'
         WHERE nombre = '$nomb' AND correo ='$email'";
+    }
+
+
+    function findMatches($session_nomb, $session_email) {
+
     }
 
     // Devolver una respuesta al cliente
