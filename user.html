@@ -3,82 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>USER HTML</title>
+    <link rel="icon" href="IMG/restaurant.ico">
+    <title>Perfil de Usuario | Restaurante</title>
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@700&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="CSS/normalize.css">
     <link rel="stylesheet" href="CSS/estilos.css">
-    <style>
-        /* user-html / style */
-        /* Estilos para la página de inicio de sesión y registro */
-        #login-register {
-        padding: 40px 0;
-        text-align: center;
-        }
-
-        form {
-        margin-bottom: 20px;
-        }
-
-        form input {
-        width: 300px;
-        padding: 10px;
-        margin: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        }
-
-        form button {
-        width: 200px;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        }
-
-        /* Estilos para la página de perfil de usuario */
-        #perfil {
-        padding: 40px 0;
-        text-align: center;
-        }
-
-        #profile-form input {
-        width: 300px;
-        padding: 10px;
-        margin: 10px;
-        border: 1px solid #ccc;
-        border-radius: 5px;
-        }
-
-        #profile-form button {
-        width: 200px;
-        padding: 10px;
-        background-color: #007bff;
-        color: #fff;
-        border: none;
-        border-radius: 5px;
-        cursor: pointer;
-        }
-
-        #purchase-history {
-        margin: 20px auto;
-        border-collapse: collapse;
-        }
-
-        #purchase-history th, #purchase-history td {
-        padding: 10px;
-        border: 1px solid #ccc;
-        }
-
-        #purchase-history th {
-        background-color: #007bff;
-        color: #fff;
-        }
-        
-    </style>
+    <link rel="stylesheet" type="text/css" href="CSS/user.css">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
     <!-- Encabezado -->
@@ -93,13 +26,16 @@
                     <label for="menuO" onclick="togglenav()"><img data-src="IMG/menu.svg" alt="menu-icono" class="menu-icono"></label>
                 </div>
                 <nav class="navegacion">
-                    <a href="index.html">Inicio</a>
-                    <a href="index.html/#nosotros-e">Nosotros</a>
-                    <a href="index.html/#menu-e">Menú</a>
-                    <a href="index.html/#mision-e">Mision y Vision</a>
-                    <a href="index.html/#contacto-e">Contacto</a>
-                    <a href="user.html">Perfil</a>
-                </nav>
+                    <a href="index.html" class="nav-tab">Inicio</a>
+                    <a href="#nosotros-e" class="nav-tab">Nosotros</a>
+                    <a href="#menu-e" class="nav-tab">Menú</a>
+                    <a href="#mision-e" class="nav-tab">Mision y Vision</a>
+                    <a href="#contacto-e" class="nav-tab">Contacto</a>
+                    <a href="login_register.html" class="cuenta-link">
+                      <span class="icono-user">
+                        <img data-src="IMG/user-regular.svg" alt="Icono Usuario">
+                      </span>Ingresar</a>
+                </nav>                  
                 <!-- CARRITO -->
                 <div>
                     <ul>
@@ -124,56 +60,51 @@
                         </li>
                     </ul>
                 </div>
+            </div>
                 <!-- FIN-CARRITO -->
             </div>
         </div>
+        <!-- Menu responsive -->
+        <nav id="navmovil">
+            <li><a href="#inicio-e" onclick="togglenav()">Inicio</a></li>
+            <li><a href="#nosotros-e" onclick="togglenav()">Nosotros</a></li>
+            <li><a href="#menu-e" onclick="togglenav()">Menú</a></li>
+            <li><a href="#mision-e" onclick="togglenav()">Mision y Vision</a></li>
+            <li><a href="#contacto-e" onclick="togglenav()">Contacto</a></li>
+            <li><a href="login_register.html" onclick="togglenav()" class="ingresar-link">
+                <span class="icon-responsive">
+                  <img data-src="IMG/user-regular.svg" alt="Icono Usuario">
+                </span>Ingresar</a></li>
+        </nav>
     </header>
 
-    <!-- Página de inicio de sesión y registro -->
-    <main id="login-register">
-        <h1>Iniciar sesión</h1>
-        <form id="login-form">
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <button type="submit">Iniciar sesión</button>
-        </form>
-
-        <h1>Registrarse</h1>
-        <form id="register-form">
-            <input type="text" placeholder="Nombre de cliente" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <input type="tel" placeholder="Teléfono" required>
-            <input type="text" placeholder="Dirección de domicilio" required>
-            <button type="submit">Registrarse</button>
-        </form>
-    </main>
-
-    <!-- Página de perfil de usuario -->
-    <section id="perfil">
-        <h1>Perfil de usuario</h1>
-        <h2>Datos personales</h2>
-        <form id="profile-form">
-            <input type="text" placeholder="Nombre de cliente" required>
-            <input type="email" placeholder="Correo electrónico" required>
-            <input type="password" placeholder="Contraseña" required>
-            <input type="tel" placeholder="Teléfono" required>
-            <input type="text" placeholder="Dirección de domicilio" required>
-            <button type="submit">Guardar cambios</button>
-        </form>
-
-        <h2>Historial de compras</h2>
-        <table id="purchase-history">
-            <thead>
-                <tr>
-                    <th>N° Pedido</th>
-                    <th>Productos</th>
-                    <th>Fecha de compra</th>
-                    <th>Monto total de pedido</th>
-                </tr>
-            </thead>
-        </table>
-    </section>
+    <!-- PERFIL DE USUARIO -->
+    <div class="container">
+        <h1>Perfil de Usuario</h1>
+        <div class="profile">
+          <img data-src="IMG/user-regular.svg" alt="Imagen de Usuario" class="profile-image">
+          <div class="profile-info">
+            <label for="name">Nombre:</label>
+            <input type="text" id="name" name="name" placeholder="Nombre" readonly>
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" placeholder="Email" readonly>
+    
+            <label for="password">Contraseña:</label>
+            <input type="password" id="password" name="password" placeholder="Contraseña" readonly>
+    
+            <label for="address">Dirección:</label>
+            <input type="text" id="address" name="address" placeholder="Dirección" readonly>
+          </div>
+        </div>
+    
+        <div class="buttons">
+          <button id="modify-btn">Modificar Datos</button>
+          <button id="save-btn" disabled>Guardar Cambios</button>
+          <button id="logout-btn">Cerrar Sesión</button>
+          <button id="delete-btn">Eliminar Cuenta</button>
+        </div>
+      </div>    
 
     <!-- PIE DE PAGINA -->
     <div class="pie-pagina">
@@ -200,9 +131,11 @@
         </div>
     </div>
     <footer class="footer">
-        <p>Todos los derechos reservados &copy; 2023 Deli Tempura, desarrollado por Luis</p>
+        <p>Todos los derechos reservados &copy; 2023 Deli Tempura</p>
     </footer>
+
     <script src="JS/app.js"></script>
-    <script src="JS/login.js"></script>
+    <script src="JS/user.js"></script>
 </body>
 </html>
+

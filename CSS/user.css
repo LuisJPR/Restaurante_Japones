@@ -1,0 +1,116 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 10rem;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .profile-info {
+    flex-grow: 1;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .buttons #modify-btn,
+  .buttons #save-btn,
+  .buttons #logout-btn {
+    transition: color 0.3s;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 5px 10px; /* Añadir un espaciado interno al botón */
+  }
+
+  .buttons #modify-btn:hover,
+  .buttons #save-btn:hover,
+  .buttons #logout-btn:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid gray;
+  }
+
+  .buttons #delete-btn {
+    color: white;
+    transition: color 0.3s;
+    background-color: red;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 5px 10px; /* Añadir un espaciado interno al botón */
+  }
+
+  .buttons #delete-btn:hover {
+    color: black;
+    border: 2px solid red;
+    background-color: white;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .profile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profile-image {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    button {
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .buttons {
+      display: block;
+    }
+
+    .container {
+      padding: 20px;
+      padding-top: 10rem;
+    }
+  }
+  

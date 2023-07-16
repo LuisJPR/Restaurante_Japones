@@ -29,7 +29,6 @@ function changeTab(tabId) {
     registerForm.classList.add('active');
     loginForm.style.pointerEvents = 'none'; // Deshabilitar eventos del formulario de inicio de sesión
     registerForm.style.pointerEvents = 'auto'; // Habilitar eventos del formulario de registro
-    //container.style.height = formContainer.offsetHeight + 'px'; // Ajustar altura del contenedor
 	  container.style.height = '415px';
 	
     loginTab.classList.remove('active'); // Remover clase active de la pestaña de inicio de sesión
