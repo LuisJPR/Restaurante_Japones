@@ -1,5 +1,5 @@
 <?php
-    session_start();
+    session_start(); // Inicia la sesion
 
     // Obtener los datos enviados desde JavaScript
     $nombre = $_POST["nombre"];
@@ -7,12 +7,11 @@
     $clave = $_POST["clave"];
     $direccion = $_POST["direccion"];
 
-    // Obtener los datos de sesión activos
-    $session_nomb = $_SESSION["nombre"];
+    // Obtener el dato de sesión activo
     $session_email = $_SESSION["correo"];
 
     // Realizar las operaciones necesarias con los datos recibidos
-    // Por ejemplo, guardarlos en la base de datos o realizar alguna otra acción
+    // Por ejemplo, guardarlos en la base de datos
     include("conexion.php");
     $con = conexion();
 
@@ -21,14 +20,12 @@
     if (validarRegistroForm($nombre, $correo)) {
 
         // Verificar si existen coincidencias en la base de datos - [correo]
-        //$coincidenciaNombre = false;
-        $coincidenciaCorreo = false;
-        findMatches();
+        $coincidenciaCorreo = findMatches($con, $correo, "correo");
 
         // Si no hay coincidencias, actualizar la información en la base de datos
-        if (!$coincidenciaNombre && !$coincidenciaCorreo) {
+        if (!$coincidenciaCorreo) {
             $sql = "UPDATE usuarios SET nombre = '$nombre', correo = '$correo', clave = '$clave', direccion = '$direccion'
-            WHERE nombre = '$session_nomb' AND correo = '$session_email'";
+            WHERE correo = '$session_email'";
 
             $result = mysqli_query($con, $sql);
             if (!$result) {
@@ -36,8 +33,7 @@
                     "message" => "Error al actualizar los datos en el servidor."
                 ];
             } else {
-                // Actualizar los datos de sesión con los nuevos valores
-                $_SESSION["nombre"] = $nombre;
+                // Actualiza el dato de sesión
                 $_SESSION["correo"] = $correo;
 
                 $response = [
@@ -50,33 +46,14 @@
             ];
         }
     } else {
+        // Mostrar alerta JavaScript y recargar formulario
+        echo '<script>
+        window.alert("------- ATENCIÓN -------\nLos datos ingresados en el formulario de registro no son válidos.\n\nERROR: Nombre\nERROR: Correo electrónico\n\nRevise e intente de nuevo.");
+        window.location.href = "../login_register.html";
+        </script>';
         $response = [
             "message" => "Error en los datos enviados desde el cliente."
         ];
-    }
-
-    // Función para buscar coincidencias en la base de datos
-    function findMatches($con, $nombre, $correo) {
-        $query = "SELECT correo, nombre FROM usuarios";
-        $result = mysqli_query($con, $query);
-        if (!$result) {
-            die("Error al obtener los registros: " . mysqli_error($con));
-        }
-
-        // Verificar coincidencias de nombre y correo
-        global $coincidenciaNombre, $coincidenciaCorreo;
-        $coincidenciaNombre = false;
-        $coincidenciaCorreo = false;
-
-        while ($row = mysqli_fetch_assoc($result)) {
-            if ($row['nombre'] == $nombre) {
-                $coincidenciaNombre = true;
-            }
-
-            if ($row['correo'] == $correo) {
-                $coincidenciaCorreo = true;
-            }
-        }
     }
 
     // Devolver una respuesta al cliente

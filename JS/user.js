@@ -38,6 +38,8 @@ document.getElementById("save-btn").addEventListener("click", function() {
       // Manejar errores en caso de que ocurra alguno
       console.error(error);
       alert("Ocurrió un error en la comunicación con el servidor. Intente de nuevo más tarde.");
+      // Recargar la página
+      location.reload();
     });
 
   var inputs = document.getElementsByTagName("input");
