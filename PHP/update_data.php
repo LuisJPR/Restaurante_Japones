@@ -20,10 +20,10 @@
     include("util.php");
     if (validarRegistroForm($nombre, $correo)) {
 
-        // Verificar si existen coincidencias en la base de datos
-        $coincidenciaNombre = false;
+        // Verificar si existen coincidencias en la base de datos - [correo]
+        //$coincidenciaNombre = false;
         $coincidenciaCorreo = false;
-        findMatches($con, $nombre, $correo);
+        findMatches();
 
         // Si no hay coincidencias, actualizar la información en la base de datos
         if (!$coincidenciaNombre && !$coincidenciaCorreo) {
@@ -56,7 +56,7 @@
     }
 
     // Función para buscar coincidencias en la base de datos
-    function findMatches($con, $session_nomb, $session_email) {
+    function findMatches($con, $nombre, $correo) {
         $query = "SELECT correo, nombre FROM usuarios";
         $result = mysqli_query($con, $query);
         if (!$result) {
@@ -69,11 +69,11 @@
         $coincidenciaCorreo = false;
 
         while ($row = mysqli_fetch_assoc($result)) {
-            if ($row['nombre'] == $session_nomb) {
+            if ($row['nombre'] == $nombre) {
                 $coincidenciaNombre = true;
             }
 
-            if ($row['correo'] == $session_email) {
+            if ($row['correo'] == $correo) {
                 $coincidenciaCorreo = true;
             }
         }
