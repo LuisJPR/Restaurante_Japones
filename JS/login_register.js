@@ -187,9 +187,11 @@ document.addEventListener('DOMContentLoaded', function() {
     var email = document.getElementById("register-email").value;
     var password = document.getElementById("register-password").value;
 
+    const validationError = validarCampos(name, email, password);
+
     // Validar los campos
-    if (validarCampos(name, email, password) !== '') {
-      var msj = '<h1>Alerta</h1><p>' + validarCampos(email, password) + '</p><button class="btn-aceptar" id="btnAceptar">Aceptar</button>';
+    if (validationError !== '') {
+      var msj = '<h1>Alerta</h1><p>' + validationError + '</p><button class="btn-aceptar" id="btnAceptar">Aceptar</button>';
       crearVentanaEmergente(msj);
       // Vincular el evento onclick del botón "Aceptar" después de agregarlo al DOM
       document.getElementById("btnAceptar").addEventListener("click", cerrarVentanaEmergente);
