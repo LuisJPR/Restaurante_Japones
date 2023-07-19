@@ -1,3 +1,16 @@
+<?php
+    session_start();
+
+    if (!isset($_SESSION['usuario'])) {
+        http_response_code(404);
+        include('404.html');
+        exit();
+    }
+
+    // Obtener los datos del usuario de la variable de sesión
+    $usuario = $_SESSION['usuario'];
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -27,10 +40,10 @@
                 </div>
                 <nav class="navegacion">
                     <a href="index.html" class="nav-tab">Inicio</a>
-                    <a href="#nosotros-e" class="nav-tab">Nosotros</a>
-                    <a href="#menu-e" class="nav-tab">Menú</a>
-                    <a href="#mision-e" class="nav-tab">Mision y Vision</a>
-                    <a href="#contacto-e" class="nav-tab">Contacto</a>
+                    <a href="index.html#nosotros-e" class="nav-tab">Nosotros</a>
+                    <a href="index.html#menu-e" class="nav-tab">Menú</a>
+                    <a href="index.html#mision-e" class="nav-tab">Mision y Vision</a>
+                    <a href="index.html#contacto-e" class="nav-tab">Contacto</a>
                     <a href="login_register.html" class="cuenta-link">
                       <span class="icono-user">
                         <img data-src="IMG/user-regular.svg" alt="Icono Usuario">
@@ -66,11 +79,11 @@
         </div>
         <!-- Menu responsive -->
         <nav id="navmovil">
-            <li><a href="#inicio-e" onclick="togglenav()">Inicio</a></li>
-            <li><a href="#nosotros-e" onclick="togglenav()">Nosotros</a></li>
-            <li><a href="#menu-e" onclick="togglenav()">Menú</a></li>
-            <li><a href="#mision-e" onclick="togglenav()">Mision y Vision</a></li>
-            <li><a href="#contacto-e" onclick="togglenav()">Contacto</a></li>
+            <li><a href="index.html" onclick="togglenav()">Inicio</a></li>
+            <li><a href="index.html#nosotros-e" onclick="togglenav()">Nosotros</a></li>
+            <li><a href="index.html#menu-e" onclick="togglenav()">Menú</a></li>
+            <li><a href="index.html#mision-e" onclick="togglenav()">Mision y Vision</a></li>
+            <li><a href="index.html#contacto-e" onclick="togglenav()">Contacto</a></li>
             <li><a href="login_register.html" onclick="togglenav()" class="ingresar-link">
                 <span class="icon-responsive">
                   <img data-src="IMG/user-regular.svg" alt="Icono Usuario">
@@ -80,21 +93,21 @@
 
     <!-- PERFIL DE USUARIO -->
     <div class="container">
-        <h1>Perfil de Usuario</h1>
+        <h1>Bienvenid@ a tu perfil <?php echo $usuario['nombre'] ?></h1>
         <div class="profile">
           <img data-src="IMG/user-regular.svg" alt="Imagen de Usuario" class="profile-image">
           <div class="profile-info">
             <label for="name">Nombre:</label>
-            <input type="text" id="name" name="name" placeholder="Nombre" readonly>
+            <input type="text" id="name" name="name" value="<?php echo $usuario['nombre'] ?>" placeholder="Nombre" readonly>
     
             <label for="email">Email:</label>
-            <input type="email" id="email" name="email" placeholder="Email" readonly>
+            <input type="email" id="email" name="email" value="<?php echo $usuario['correo'] ?>" placeholder="Email" readonly>
     
             <label for="password">Contraseña:</label>
-            <input type="password" id="password" name="password" placeholder="Contraseña" readonly>
+            <input type="password" id="password" name="password" value="<?php echo $usuario['clave'] ?>" placeholder="Contraseña" readonly>
     
             <label for="address">Dirección:</label>
-            <input type="text" id="address" name="address" placeholder="Dirección" readonly>
+            <input type="text" id="address" name="address" value="<?php echo $usuario['direccion'] ?>" placeholder="Dirección" readonly>
           </div>
         </div>
     

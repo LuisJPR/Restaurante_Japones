@@ -1,3 +1,12 @@
+<?php
+    session_start();
+
+    if (isset($_SESSION['usuario'])) {
+        header("Location: user.php");
+    }
+    
+?>
+
 <!DOCTYPE html>
 <html lang="es">
 <head>
@@ -5,7 +14,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="icon" href="IMG/restaurant.ico">
     <link rel="stylesheet" type="text/css" href="CSS/login_register.css">
-    <script src="JS/login_register.js"></script>
     <title>Ingresar | Clientes</title>
 </head>
 
@@ -28,7 +36,7 @@
     <div class="form-container">
       <div id="login-form" class="form active">
         <h2>Iniciar sesión</h2>
-        <form action="PHP/login.php" method="post">
+        <form>
           <div class="input-container">
             <label for="email">Correo electrónico</label>
             <input type="email" name="login-email" id="login-email" placeholder="ejemplo@dominio.com" required>
@@ -37,12 +45,12 @@
             <label for="password">Contraseña</label>
             <input type="password" name="login-password" id="login-password" placeholder="********" required>
           </div>
-          <button type="submit">Iniciar sesión</button>
+          <button id="login-btn" type="button">Iniciar sesión</button>
         </form>
       </div>
       <div id="register-form" class="form">
         <h2>Registrarse</h2>
-        <form action="PHP/register.php" method="post">
+        <form>
           <div class="input-container">
             <label for="name">Nombre</label>
             <input type="text" name="register-name" id="register-name" placeholder="Nombre completo" required>
@@ -55,7 +63,7 @@
             <label for="password">Contraseña</label>
             <input type="password" name="register-password" id="register-password" placeholder="********" required>
           </div>
-          <button type="submit">Registrarse</button>
+          <button id="register-btn" type="button">Registrarse</button>
         </form>
       </div>
     </div>
@@ -65,5 +73,7 @@
 		<p>Derechos Reservados Restaurante Japonés Deli Tempura &copy; 2023</p>
 	</footer>
 
+  <script src="JS/login_register.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </body>
 </html>

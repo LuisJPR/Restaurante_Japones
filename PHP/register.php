@@ -1,67 +1,56 @@
 <?php
     session_start(); // Iniciar la sesión
 
-    // Valida si la sesión esta declarada y es diferente de null
-    if (isset($_SESSION['formulario_enviado'])) {
-        // El formulario ya se ha enviado, no se realiza ninguna acción adicional
-        echo 'El formulario ya ha sido enviado. No se puede volver a enviar.';
-        echo '<form action="util.php" method="post">
-        <input type="hidden" name="action" value="logout">
-        <input type="submit" value="Cerrar sesión">
-      </form>';
-        exit();
-    }
-    
+    // Recibir los datos JSON enviados desde JavaScript
+    $data = json_decode(file_get_contents('php://input'), true);
+
     include("conexion.php");
     $con = conexion();
 
-    // Obtener los datos del formulario
-    $nombre = $_POST['register-name']; // +
-    $correo = $_POST['register-email']; // +
-    $clave = $_POST['register-password'];
+    // Obtener los datos del formulario via JSON
+    $nombre = $data['nombre'];
+    $correo = $data['correo'];
+    $clave = $data['clave'];
     $direccion = "SIN ESPECIFICAR";
 
     // Realizar las validaciones necesarias
     include("util.php");
     if (validarRegistroForm($nombre, $correo)) {
-
-        if (!findMatches($con, $correo, "correo")) {
-            die('<script>
-            window.alert("------- ATENCIÓN -------\nEl correo ingresado ya se encuentra registrado en el sistema. Verifique sus datos e intente de nuevo.");
-            window.location.href = "../login_register.html";
-            </script>');
+        if (findMatches($con, $correo, "correo")) {
+            echo json_encode(array('error' => 'El correo ingresado ya se encuentra registrado en el sistema. Verifique sus datos e intente de nuevo.'));
+            exit();
 
         } else {
-            $tmp = false;
             // Insertar los datos en la base de datos
             $sql = "INSERT INTO usuarios (nombre, correo, clave, direccion) VALUES ('$nombre','$correo', '$clave', '$direccion')";
 
             if ($con->query($sql) === TRUE) {
-                echo "Datos guardados correctamente.";
-                $_SESSION["nombre"] = $nombre;
-                $_SESSION["correo"] = $correo;
+                // Consulta SQL para verificar el usuario y obtener todos sus datos
+                $sql = "SELECT * FROM usuarios WHERE correo = '$correo' AND clave = '$clave'";
+                $result = $con->query($sql);
 
-                $_SESSION['formulario_enviado'] = true; // Marcar el formulario como enviado
-                $tmp = true;
+                // Verificar si se encontró un usuario con los datos ingresados
+                if ($result->num_rows == 1) {
+                    // Usuario válido, obtener los datos del usuario
+                    $usuario = $result->fetch_assoc();
+                    // Cerrar la conexión a la base de datos
+                    $con->close();
+                    // Guardar los datos del usuario en una variable de sesión
+                    $_SESSION['usuario'] = $usuario;
+                    // Redireccionar a otra página HTML
+                    header("Location: ../user.php");
+                    exit();
+                }
+
             } else {
-                echo "Error al guardar los datos: " . $con->error;
-            }
-
-            // Cerrar la conexión con MySQL
-            $con->close();
-            echo "---- Sesión cerrada de MySQL ----";
-            if ($tmp == true) {
-                // Redireccionar a la página de perfil de usuario
-                header('Location: ../user.html'); 
+                echo json_encode(array('error' => 'Error al guardar los datos: '. $con->error));
+                exit();
             }
         }
         
     } else {
-        // Mostrar alerta JavaScript y recargar formulario
-        echo '<script>
-        window.alert("------- ATENCIÓN -------\nLos datos ingresados no son válidos. Se esperaba un nombre y un correo en sus formatos válidos.\n\nPor favor revise sus datos e intente de nuevo.");
-        window.location.href = "../login_register.html";
-        </script>';
+        echo json_encode(array('error' => 'Los datos ingresados no son correctos. Se esperaba un nombre y un correo en sus formatos válidos. Por favor revise sus datos e intente de nuevo.'));        
+        exit();
     }
 
 ?>

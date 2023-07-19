@@ -1,12 +1,4 @@
 <?php
-
-    /* TEST */ 
-    // Verifica si se ha enviado el formulario y si la acción es "logout"
-    if (isset($_POST['action']) && $_POST['action'] === 'logout') {
-        // Llama a la función logout()
-        logout();
-    }
-
     /**
      * Función para buscar coincidencias en la base de datos
      */
@@ -25,17 +17,6 @@
             }
         }
         return false;
-    }
-
-    /**
-     * Cierra la sesión de usuario
-     */
-    function logout() {
-        session_start();
-        session_destroy();
-        // Redireccionar a la página principal después de cerrar sesión
-        header('Location: ../index.html'); 
-        exit();
     }
 
     /**
