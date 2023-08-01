@@ -1,0 +1,169 @@
+.container {
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 20px;
+    padding-top: 10rem;
+  }
+  
+  h1 {
+    text-align: center;
+  }
+  
+  .profile {
+    display: flex;
+    align-items: center;
+    margin-bottom: 20px;
+  }
+  
+  .profile-image {
+    width: 150px;
+    height: 150px;
+    border-radius: 50%;
+    margin-right: 20px;
+  }
+  
+  .profile-info {
+    flex-grow: 1;
+  }
+  
+  label {
+    display: block;
+    margin-bottom: 5px;
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 10px;
+    border-radius: 5px;
+    border: 1px solid #ccc;
+  }
+  
+  .buttons {
+    display: flex;
+    justify-content: center;
+  }
+  
+  .buttons #modify-btn,
+  .buttons #save-btn,
+  .buttons #logout-btn {
+    transition: color 0.3s;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 5px 10px; /* Añadir un espaciado interno al botón */
+    cursor: pointer;
+  }
+
+  .buttons #modify-btn:hover,
+  .buttons #save-btn:hover,
+  .buttons #logout-btn:hover {
+    color: white;
+    background-color: black;
+    border: 2px solid gray;
+  }
+
+  .buttons #delete-btn {
+    color: white;
+    transition: color 0.3s;
+    background-color: red;
+    border-radius: 15px;
+    border: 2px solid black;
+    padding: 5px 10px; /* Añadir un espaciado interno al botón */
+    cursor: pointer;
+  }
+
+  .buttons #delete-btn:hover {
+    color: black;
+    border: 2px solid red;
+    background-color: white;
+  }
+
+  button {
+    padding: 10px 20px;
+    margin: 0 10px;
+  }
+  
+  button:disabled {
+    opacity: 0.5;
+    cursor: not-allowed;
+  }
+  
+  @media screen and (max-width: 480px) {
+    .profile {
+      flex-direction: column;
+      align-items: flex-start;
+    }
+  
+    .profile-image {
+      margin-right: 0;
+      margin-bottom: 10px;
+    }
+  
+    button {
+      width: 100%;
+      margin: 10px 0;
+    }
+
+    .buttons {
+      display: block;
+    }
+
+    .container {
+      padding: 20px;
+      padding-top: 10rem;
+    }
+  }
+
+  /* Estilo para el fondo traslúcido */
+  .fondo-traslucido {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(128, 128, 128, 0.6); /* Fondo semi-transparente con tono medio gris */
+    z-index: 9998; /* Asegura que el fondo esté detrás de la ventana emergente */
+}
+
+  /* Estilo para la Ventana emergente */
+  .ventana-emergente {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    padding: 20px;
+    background-color: #fff;
+    border: 2px solid #ccc;
+    border-radius: 15px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+    z-index: 9999;
+    text-align: center;
+  }
+
+  .btn-aceptar,
+  .btn-cancelar {
+    display: inline-block;
+    padding: 10px 20px;
+    margin-top: 15px;
+    border: 2px solid black;
+    background-color: black;
+    border-radius: 15px;
+    color: white;
+    text-decoration: none;
+    font-size: 16px;
+    cursor: pointer;
+    transition: background-color 0.3s;    
+  }
+
+  .btn-aceptar:hover {
+    background-color: #ececec;
+    color: black;
+  }
+
+  .btn-cancelar:hover {
+    background-color: red;
+  }
+
+  

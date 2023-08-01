@@ -1,0 +1,223 @@
+* {
+  box-sizing: border-box;
+}
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #f5f5f5;
+  font-family: 'Roboto', sans-serif;
+}
+
+.container {
+  max-width: 400px;
+  width: 100%;
+  margin: 0 auto;
+  padding: 20px;
+  background-color: #ffffff;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 50px; /* Añadir un margen inferior al contenedor principal */
+
+}
+
+h2 {
+  margin: 0 0 20px;
+  color: #333333;
+}
+
+form {
+  margin-bottom: 20px;
+}
+
+.input-container {
+  margin-bottom: 15px;
+}
+
+label {
+  display: block;
+  font-size: 14px;
+  font-weight: 500;
+  color: #555555;
+}
+
+input[type="email"],
+input[type="text"],
+input[type="password"] {
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 4px;
+  background-color: #f5f5f5;
+  color: #333333;
+}
+
+button {
+  width: 100%;
+  padding: 12px;
+  border: none;
+  border-radius: 4px;
+  background-color: #FF5722;
+  color: #ffffff;
+  font-size: 16px;
+  font-weight: 500;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: #E64A19;
+}
+
+.tab-container {
+  display: flex;
+  margin-bottom: 15px;
+}
+
+.tab {
+  flex: 1;
+  padding: 10px;
+  text-align: center;
+  background-color: #f5f5f5;
+  border-radius: 4px 4px 0 0;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+.tab.active {
+  background-color: #FF5722;
+  color: #ffffff;
+}
+
+.form-container {
+  position: relative;
+  overflow: hidden;
+  height: auto;
+  transition: height 0.3s ease;
+  /*max-height: 100%; /* tmp */
+  min-height: 350px;
+}
+
+#login-form {
+  transform: translateX(0);
+  opacity: 1;
+  pointer-events: auto;
+}
+
+#register-form {
+  position: absolute;
+  top: 0;
+  left: 0;   /* Ajusta el left a 0, para que el formulario "Registrarse" esté inicialmente oculto */
+  right: 0;
+  bottom: 0;
+  opacity: 0;
+  pointer-events: none;
+}
+
+#login-form,
+#register-form {
+  transition: transform 0.3s ease, opacity 0.3s ease;
+}
+
+/* VOLVER */
+
+.back-link {
+  position: absolute;
+  top: 10px;
+  left: 10px;
+}
+
+.volver-link {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: color 0.3s;
+  background-color: #FE531E;
+  border-radius: 30px;
+  border: 2px solid black;
+  padding: 5px 10px; /* Añadir un espaciado interno al botón */
+  color: black;
+}
+
+.volver-link:hover {
+  color: black;
+  border: 2px solid #FE531E;
+  background-color: white;
+}
+
+.icono-volver {
+  margin-right: 5px;
+  width: 20px;
+  height: 20px;
+}
+
+.icono-volver img {
+  width: 100%;
+  height: 100%;
+}
+
+.link-text {
+  margin-right: 5px; /* Añadir margen derecho al texto "Volver" */
+  font-weight: bold;
+}
+
+footer {
+  background-color: black;
+  color: #fff;
+  padding: 1px;
+  text-align: center;
+  position: fixed;
+  bottom: 0; /* Situar el "footer" en la parte inferior */
+  width: 100%; /* Asegurar que ocupe todo el ancho */
+}
+
+/* Estilo para el fondo traslúcido */
+.fondo-traslucido {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(128, 128, 128, 0.6); /* Fondo semi-transparente con tono medio gris */
+  z-index: 9998; /* Asegura que el fondo esté detrás de la ventana emergente */
+}
+
+/* Estilo para la Ventana emergente */
+.ventana-emergente {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  padding: 20px;
+  background-color: #fff;
+  border: 2px solid #ccc;
+  border-radius: 15px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  z-index: 9999;
+  text-align: center;
+}
+
+.btn-aceptar {
+  display: inline-block;
+  padding: 10px 20px;
+  margin-top: 15px;
+  border: 2px solid black;
+  background-color: black;
+  border-radius: 15px;
+  color: white;
+  text-decoration: none;
+  font-size: 16px;
+  cursor: pointer;
+  transition: background-color 0.3s;    
+}
+
+.btn-aceptar:hover {
+  background-color: #ececec;
+  color: black;
+}

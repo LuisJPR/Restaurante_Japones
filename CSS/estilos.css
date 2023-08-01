@@ -85,7 +85,7 @@ img{
     font-size: 2rem;
     padding: 1rem;
 }
-.navegacion a:hover{  /*Cambio de color al pasar el mouse*/
+.navegacion .nav-tab:hover{  /*Cambio de color al pasar el mouse*/
     color: red;
 }
 /*SECCION DE LOS ENLACES*/
@@ -147,6 +147,7 @@ img{
 #navmovil li{
     list-style: none;
     padding: 10px;
+    text-align: center;
 }
 #navmovil li a{
     text-decoration: none;
@@ -156,6 +157,35 @@ img{
 }
 #navmovil li a:hover{
     color: red;
+}
+
+#navmovil .ingresar-link {
+    display: flex; /* Utilizamos flexbox para alinear el icono y el texto */
+    align-items: center; /* Alineamos verticalmente el icono y el texto */
+    text-decoration: none; /* Eliminamos el subrayado del enlace */
+    transition: color 0.3s; /* Transición suave del color al hacer hover */
+    background-color: red; /*rgb(255, 0, 122);*/
+    border-radius: 30px;
+    border: 2px solid black;
+    justify-content: center; /* Añadido para centrar horizontalmente */
+}
+
+#navmovil .ingresar-link:hover {
+    color: black; /* Color del texto al hacer hover */
+    border: 2px solid red;
+    background-color: white;
+}
+
+#navmovil .icon-responsive {
+    margin-left: 10px;
+    margin-right: 5px; /* Margen derecho para separar el icono del texto */
+    width: 20px; 
+    height: 20px; 
+}
+
+#navmovil img {
+    width: 100%; /* Asegura que el icono ocupe todo el espacio disponible */
+    height: 100%; 
 }
 
 /*CARRITO DE COMPRAS*/
@@ -564,3 +594,33 @@ th, td{
     padding: 2rem;
     font-size: 2rem;
 }
+
+/* Estilos de la sección "Ingresar" del nav principal */
+
+.cuenta-link {
+    display: flex; /* Utilizamos flexbox para alinear el icono y el texto */
+    align-items: center; /* Alineamos verticalmente el icono y el texto */
+    text-decoration: none; /* Eliminamos el subrayado del enlace */
+    transition: color 0.3s; /* Transición suave del color al hacer hover */
+    background-color: red; /*rgb(255, 0, 122);*/
+    border-radius: 30px;
+    border: 2px solid black;
+  }
+  
+  .cuenta-link:hover {
+    color: black; /* Color del texto al hacer hover */
+    border: 2px solid red;
+    background-color: white;
+  }
+  
+  .icono-user {
+    margin-right: 5px; /* Margen derecho para separar el icono del texto */
+    width: 20px; 
+    height: 20px; 
+  }
+  
+  .icono-user img {
+    width: 100%; /* Asegura que el icono ocupe todo el espacio disponible */
+    height: 100%; 
+  }
+  

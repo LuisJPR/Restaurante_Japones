@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Deli Tempura</title>
+    <title>Deli Tempura | Restaurante</title>
+    <link rel="icon" href="IMG/restaurant.ico">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Arima:wght@700&family=Mulish:wght@400;700&display=swap" rel="stylesheet">
@@ -23,12 +24,16 @@
                     <label for="menuO" onclick="togglenav()"><img data-src="IMG/menu.svg" alt="menu-icono" class="menu-icono"></label>
                 </div>
                 <nav class="navegacion">
-                    <a href="#inicio-e">Inicio</a>
-                    <a href="#nosotros-e">Nosotros</a>
-                    <a href="#menu-e">Menú</a>
-                    <a href="#mision-e">Mision y Vision</a>
-                    <a href="#contacto-e">Contacto</a>
-                </nav>
+                    <a href="index.html" class="nav-tab">Inicio</a>
+                    <a href="#nosotros-e" class="nav-tab">Nosotros</a>
+                    <a href="#menu-e" class="nav-tab">Menú</a>
+                    <a href="#mision-e" class="nav-tab">Mision y Vision</a>
+                    <a href="#contacto-e" class="nav-tab">Contacto</a>
+                    <a href="login_register.php" class="cuenta-link">
+                      <span class="icono-user">
+                        <img data-src="IMG/user-regular.svg" alt="Icono Usuario">
+                      </span>Ingresar</a>
+                </nav>                  
                 <!-- CARRITO -->
                 <div>
                     <ul>
@@ -74,6 +79,10 @@
             <li><a href="#menu-e" onclick="togglenav()">Menú</a></li>
             <li><a href="#mision-e" onclick="togglenav()">Mision y Vision</a></li>
             <li><a href="#contacto-e" onclick="togglenav()">Contacto</a></li>
+            <li><a href="login_register.php" onclick="togglenav()" class="ingresar-link">
+                <span class="icon-responsive">
+                  <img data-src="IMG/user-regular.svg" alt="Icono Usuario">
+                </span>Ingresar</a></li>
         </nav>
     </header>
     <!-- Sobre Nosotros -->
@@ -361,22 +370,22 @@
         </div>
         <!-- FORMULARIO -->
         <form class="formulario">
-            <h3>Registrate</h3>
+            <h3>Suscríbete a nuestras ofertas</h3>
             <div class="input-formulario">
                 <label for="nombre">Nombre</label>
-                <input type="text" placeholder="Juan" id="nombre">
+                <input type="text" placeholder="Juan" required id="nombre">
             </div>
             <div class="input-formulario">
                 <label for="apellidos">Apellido</label>
-                <input type="text" placeholder="perez" id="apellidos">
+                <input type="text" placeholder="perez" required id="apellidos">
             </div>
             <div class="input-formulario">
                 <label for="correo">Correo</label>
-                <input type="email" placeholder="ejemplo@gmail.com" id="correo">
+                <input type="email" placeholder="ejemplo@gmail.com" required id="correo">
             </div>
             <div class="input-formulario">
                 <label for="telefono">Telefono</label>
-                <input type="tel" placeholder="912345678" id="telefono">
+                <input type="tel" placeholder="912345678" required id="telefono">
             </div>
             <div class="input-formulario">
                 <input type="submit" value="Enviar" class="btn2">
